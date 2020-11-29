@@ -30,14 +30,14 @@ const Home = () => {
             <Row>
                 <Col xs={{ span: 24 }} md={{ span: 12 }}>
                     <MovieList
-                        title="Peliculas Populares"
+                        title="Películas Populares"
                         movies={ popularMovies } 
                     />
                 </Col>
  
                 <Col xs={{ span: 24 }} md={{ span: 12 }}>
                     <MovieList
-                        title="Peliculas Más Votadas"
+                        title="Películas Más Votadas"
                         movies={ topRatedMovies }
                     />
                 </Col>

@@ -1,0 +1,131 @@
+.movie {
+    height: calc( 100vh - 64px );
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+
+    &__dark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: #000;
+        opacity: .7;
+    }
+
+    > .ant-row {
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    &__poster {
+        margin-top: 10px;
+        height: 30%;
+        
+        @media screen and ( min-width: 992px ) {
+            margin-top: 0;
+            height: 70%;
+        }
+
+        div {
+            height: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+        }
+    }
+
+    &__info {
+        height: 65%;
+        color: #FFF;
+        
+        @media screen and ( min-width: 992px ) {
+            height: 70%;
+        }
+
+        &-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            
+            h1 {
+                color: #FFF;
+                margin: 0;
+                font-size: 25px;
+                
+                @media screen and ( min-width: 992px ) {
+                    font-size: 50px;
+                }
+
+                span {
+                    font-size: 10px;
+
+                    @media screen and ( min-width: 992px ) {
+                        font-size: 20px;
+                    }
+
+                    margin-left: 10px;
+                    opacity: .5;
+                }
+            }
+
+            button {
+                height: 100%;
+                background-color: transparent;
+                color: #FFF;
+                border: 0;
+                font-size: 10px;
+
+                @media screen and ( min-width: 992px ) {
+                    font-size: 25px;
+                }
+
+                &:hover,
+                &:focus,
+                &:active {
+                    background-color: transparent;
+                    color: turquoise;
+                }
+            }
+        }
+
+        &-content {
+            margin-top: 20px;
+
+            @media screen and ( min-width: 992px ) {
+                margin-top: 50px;
+            }
+
+            h3 {
+                color: #FFF;
+                font-weight: bold;
+                font-size: 12px;
+                
+                @media screen and ( min-width: 992px ) {
+                    font-size: 24px;
+                }
+            }
+
+            p {
+                font-size: 10px;
+
+                @media screen and ( min-width: 992px ) {
+                    font-size: 12px;
+                }
+            }
+
+            ul {
+                li {
+                    font-size: 10px;
+
+                    @media screen and ( min-width: 992px ) {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+}
