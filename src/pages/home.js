@@ -4,6 +4,7 @@ import { Row, Col } from 'antd';
 
 import SliderMovies from '../components/SliderMovies';
 import MovieList from '../components/MovieList';
+import Footer from '../components/Footer';
 
 import useFetch from '../hooks/useFetch';
 import { URL_API, API } from '../utils/constans';
@@ -41,6 +42,8 @@ const Home = () => {
                     />
                 </Col>
             </Row>
+
+            <Footer />
         </>
     );
 };

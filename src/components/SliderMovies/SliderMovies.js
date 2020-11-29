@@ -67,6 +67,6 @@ SliderMovies.propTypes = {
 
 Movie.propTypes = {
     movie: PropTypes.object.isRequired
-}
+};
 
 export default SliderMovies;

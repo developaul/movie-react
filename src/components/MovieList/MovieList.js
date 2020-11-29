@@ -59,7 +59,7 @@ MovieList.propTypes = {
 };
 
 RenderMovie.propTypes = {
-    movies: PropTypes.object.isRequired
-}
+    movie: PropTypes.object.isRequired
+};
 
 export default MovieList;
