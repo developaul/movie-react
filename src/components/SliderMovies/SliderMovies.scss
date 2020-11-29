@@ -1,0 +1,26 @@
+.slider-movies {
+    height: 500px;
+
+    &__movie {
+        height: 500px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center top;
+
+        &-info {
+
+            height: 100%;
+            display: flex;
+            align-items: flex-end;
+            padding-bottom: 40px;
+
+            > div {
+                background-color: #A7A7a7CF;
+                margin: 0 auto;
+                text-align: center;
+                width: 90%;
+                padding: 20px;
+            }
+        }
+    }
+}
