@@ -1,5 +1,10 @@
 .menu-top {
     display: flex;
+    justify-content: space-between;
+
+    @media screen and ( min-width: 768px ) {
+        justify-content: unset;
+    }
 
     &__logo {
         display: flex;
