@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { Row, Col, Button } from 'antd';
+import { PlayCircleOutlined } from '@ant-design/icons';
 import { useParams } from 'react-router-dom'; 
 import moment from 'moment';
 
 import useFetch from '../../hooks/useFetch';
 import { URL_API, API } from '../../utils/constans';
 import Loading from '../../components/Loading';
+import ModalVideo from '../../components/ModalVideo';
 
 import './movie.scss';
 
@@ -31,8 +33,6 @@ const RenderMovie = ({ movieInfo }) => {
     const { backdrop_path, poster_path } = movieInfo;
 
     const backdrop_Path = `https://image.tmdb.org/t/p/original${ backdrop_path }`;
-
-    console.log( movieInfo );
 
     return (
         <div 
@@ -71,7 +71,42 @@ const PosterMovie = ({ image }) => {
 
 const MovieInfo = ({ movieInfo }) => {
 
-    const { title, release_date, overview, genres } = movieInfo;
+    const { id, title, release_date, overview, genres } = movieInfo;
+
+    const [ IsVisibleMmodal, setIsVisibleModal ]    = useState( false );
+
+    const videoMovie = useFetch( 
+        `${ URL_API }/movie/${ id }/videos?api_key=${ API }&language=es-ES`
+    );
+
+    const { result } = videoMovie;
+
+    const openModal = () => setIsVisibleModal( true );
+    const closeModal = () => setIsVisibleModal( false );
+
+    const renderVideo = () => {
+        if( result ) {
+            if( result.results.length > 0 ) {
+                return (
+                    <>
+                        <Button
+                            icon={ <PlayCircleOutlined /> }
+                            onClick={ openModal }
+                        >
+                            Ver Trailer
+                        </Button>
+                        
+                        <ModalVideo 
+                            videoKey={ result.results[0].key }
+                            videoPlatform={ result.results[0].site }
+                            isOpen={ IsVisibleMmodal }
+                            close={ closeModal }
+                        />
+                    </>
+                );
+            }
+        }
+    };
 
     return (
         <>
@@ -81,9 +116,7 @@ const MovieInfo = ({ movieInfo }) => {
                     <span>{ moment( release_date, 'YYYY-MM-DD' ).format( 'YYYY' ) }</span>
                 </h1>
 
-                <button>
-                    Ver Trailer
-                </button>
+                { renderVideo() }
             </div>
 
             <div className="movie__info-content">
