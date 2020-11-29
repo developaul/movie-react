@@ -1,14 +1,13 @@
 .slider-movies {
-    height: 500px;
+    height: 560px;
 
     &__movie {
-        height: 500px;
+        height: 560px;
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center top;
 
         &-info {
-
             height: 100%;
             display: flex;
             align-items: flex-end;

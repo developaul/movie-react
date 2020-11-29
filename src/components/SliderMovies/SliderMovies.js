@@ -4,13 +4,15 @@ import PropTypes from 'prop-types';
 import { Carousel, Button } from 'antd';
 import { Link } from 'react-router-dom';
 
+import Loading from '../Loading';
+
 import './SliderMovies.scss';
 
 const SliderMovies = ({ movies }) => {
 
     const { loading, result, error } = movies;
 
-    if( movies.loading || !movies.result ) return 'Loading...';
+    if( movies.loading || !movies.result ) return <Loading />;
 
     const { results  } = result;
 
