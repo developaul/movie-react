@@ -1,7 +1,8 @@
 import React from 'react';
-
 import { Layout } from 'antd';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
+import MenuTop from './components/MenuTop';
 
 // Pages
 import Home from './pages/home';
@@ -9,7 +10,7 @@ import NewMovies from './pages/new-movies';
 import Popular from './pages/popular';
 import Search from './pages/search';
 import Movie from './pages/movie';
-import Error404 from './pages/error404'
+import Error404 from './pages/error404';
 
 function App() {
 	
@@ -19,7 +20,7 @@ function App() {
         <Layout>
             <Router>
 				<Header>
-					Header
+					<MenuTop />
 				</Header>
 
 				<Content>
