@@ -24,7 +24,7 @@ const MenuTop = () => (
             </Menu.Item>
 
             <Menu.Item key="2">
-                <Link to="/new-movies">Ultimos Lanzamientos</Link>
+                <Link to="/new-movies">Últimos Lanzamientos</Link>
             </Menu.Item>
             
             <Menu.Item key="3">
