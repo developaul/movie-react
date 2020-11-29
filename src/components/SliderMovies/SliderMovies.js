@@ -10,11 +10,11 @@ import './SliderMovies.scss';
 
 const SliderMovies = ({ movies }) => {
 
-    const { loading, result, error } = movies;
+    const { loading, result } = movies;
 
-    if( movies.loading || !movies.result ) return <Loading />;
+    if( loading || !result ) return <Loading />;
 
-    const { results  } = result;
+    const { results } = result;
 
     return (
         <Carousel
@@ -59,10 +59,14 @@ const Movie = ({ movie }) => {
             </div>
         </div>
     );
-}
+};
 
 SliderMovies.propTypes = {
     movies: PropTypes.object.isRequired
 };
+
+Movie.propTypes = {
+    movie: PropTypes.object.isRequired
+}
 
 export default SliderMovies;
