@@ -5,6 +5,7 @@ import { Row, Col } from 'antd';
 import { URL_API, API } from '../utils/constans';
 import Footer from '../components/Footer';
 import Loading from '../components/Loading';
+import MovieCatalog from '../components/MovieCatalog';
 
 const NewMovies = () => {
 
@@ -31,12 +32,10 @@ const NewMovies = () => {
     return (
         <Row>
             <Col 
-                span="24"
+                span={24}
                 style={{ textAlign: "center", marginTop: 25 }}
             >
-                <h1
-                    style={{ fontSize: 35, fontWeight: "bold" }}
-                >
+                <h1 style={{ fontSize: 35, fontWeight: "bold" }}>
                     Últimos Lanzamientos
                 </h1>
             </Col>
@@ -44,19 +43,27 @@ const NewMovies = () => {
             {
                 results ? 
                     (
-                        <Col span="24">
-                            Todas las peliculas
+                        <Col span={24}
+                            style={{
+                                display: "grid",
+                                gridTemplateColumns: `repeat( auto-fit, minmax( 250px, 1fr ) )`,
+                                gridGap: 20
+                            }}
+                        >
+                            <MovieCatalog 
+                                movies={ movieList }
+                            />
                         </Col>
                     )
                     :
                     (
-                        <Col span="24">
+                        <Col span={24}>
                             <Loading />
                         </Col>
                     )
             }
 
-            <Col span="24">
+            <Col span={24}>
                 <Footer/>
             </Col>
         </Row>
