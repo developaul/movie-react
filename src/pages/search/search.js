@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 import { Row, Col, Input } from 'antd';
 import { withRouter } from 'react-router-dom';
@@ -80,5 +81,10 @@ const Search = ({ location, history }) => {
         </Row>
     );
 };
+
+Search.propTypes = {
+    location: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired
+}
 
 export default withRouter( Search );
