@@ -51,7 +51,8 @@ const Search = ({ location, history }) => {
             <Col 
                 className="search"
                 span={12}
-                offset={6}
+                style={{ margin: '0 auto' }}
+                // offset={6}
             >
                 <h1>Busca tu película</h1>
                 <Input 
