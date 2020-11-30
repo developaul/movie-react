@@ -32,7 +32,7 @@ const NewMovies = () => {
 
     const onChangePage = page => {
         setPage( page );
-    }
+    };
 
     return (
         <Row>
