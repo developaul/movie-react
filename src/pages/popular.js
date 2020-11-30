@@ -41,7 +41,7 @@ const Popular = () => {
                 style={{ textAlign: "center", marginTop: 25 }}
             >
                 <h1 style={{ fontSize: 30, fontWeight: "bold" }}>
-                    Peliculas Populares
+                    Películas Populares
                 </h1>
             </Col>
 
