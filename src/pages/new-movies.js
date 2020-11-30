@@ -6,6 +6,7 @@ import { URL_API, API } from '../utils/constans';
 import Footer from '../components/Footer';
 import Loading from '../components/Loading';
 import MovieCatalog from '../components/MovieCatalog';
+import Pagination from '../components/Pagination';
 
 const NewMovies = () => {
 
@@ -27,7 +28,11 @@ const NewMovies = () => {
 
     }, [ page ] );
 
-    const { results } = movieList;
+    const { results, page:currentPage, total_results } = movieList;
+
+    const onChangePage = page => {
+        setPage( page );
+    }
 
     return (
         <Row>
@@ -35,7 +40,7 @@ const NewMovies = () => {
                 span={24}
                 style={{ textAlign: "center", marginTop: 25 }}
             >
-                <h1 style={{ fontSize: 35, fontWeight: "bold" }}>
+                <h1 style={{ fontSize: 30, fontWeight: "bold" }}>
                     Últimos Lanzamientos
                 </h1>
             </Col>
@@ -43,17 +48,27 @@ const NewMovies = () => {
             {
                 results ? 
                     (
-                        <Col span={24}
-                            style={{
-                                display: "grid",
-                                gridTemplateColumns: `repeat( auto-fit, minmax( 250px, 1fr ) )`,
-                                gridGap: 20
-                            }}
-                        >
-                            <MovieCatalog 
-                                movies={ movieList }
-                            />
-                        </Col>
+                        <>
+                            <Col span={24}
+                                style={{
+                                    display: "grid",
+                                    gridTemplateColumns: `repeat( auto-fit, minmax( 250px, 1fr ) )`,
+                                    gridGap: 20
+                                }}
+                            >
+                                <MovieCatalog 
+                                    movies={ movieList }
+                                />
+                            </Col>
+
+                            <Col span={24}>
+                                <Pagination
+                                    currentPage={ currentPage }
+                                    totalItems={ total_results }
+                                    onChangePage={ onChangePage }
+                                />
+                            </Col>
+                        </>
                     )
                     :
                     (
